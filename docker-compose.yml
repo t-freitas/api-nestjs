@@ -5,10 +5,10 @@ services:
     container_name: api-nestjs
     build: .
     ports:
-      - "8080:8080"
+      - "3000:3000"
     volumes:
       - .:/home/app
-    command: bash -c "npm run build && npm run start:dev"
+    command: bash -c "npm install && npm run build && npm run start:dev"
     depends_on:
       - db
     restart: unless-stopped
