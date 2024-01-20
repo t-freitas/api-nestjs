@@ -18,38 +18,65 @@ Project created for study purposes and used as a base structure for other projec
 - [Postgresql](https://www.postgresql.org/)
 
 
-## Important features
-
-- [X] Local environment for development with docker
-- [ ] Health check functionality
-- [ ] Database migrations
-- [ ] API documentation
-- [ ] Code style check
-- [ ] Pattern for log
-- [ ] E2E testing with docker
-
-
 ## File `.env` 
 
 ```
 ## Database config
 DATABASE_HOST=db
-DATABASE_PORT=5432
+DATABASE_PORT=15432
 DATABASE_USER=admin
 DATABASE_PASSWORD=admin
 DATABASE_NAME=api-nest
+
+## App config
+APP_PORT:3003
 ```
 
 
 ## Run local with docker
 
 ```bash 
-# Create database and container app
+# Create database and app
 $ docker-compose --project-name api-nestjs -f docker-compose.yml up -d app db 
-
-# Connect container app
-$ docker-compose -p anp exec app bash
 ```
+
+
+## Developer tools
+
+- [Nest config](https://docs.nestjs.com/techniques/configuration)
+- [Health checks](https://docs.nestjs.com/recipes/terminus)
+- [NestCLI](https://docs.nestjs.com/cli/overview)
+
+### Health Check
+```shell
+$ curl --location --request GET 'http://localhost:3003/health'
+```
+
+### Nest CLI
+Examples [usage](https://docs.nestjs.com/cli/usages)
+
+```bash
+$ npm install -g @nestjs/cli
+```
+
+#### Generate
+```bash
+$ nest generate --help
+
+# Example
+$ nest generate <schematic> <name> [options]
+```
+
+
+## Important features
+
+- [X] Local environment for development with docker
+- [X] Health check functionality
+- [ ] Connection DB and migrations
+- [ ] API documentation
+- [ ] Code style check
+- [ ] Pattern for log
+- [ ] E2E testing with docker
 
 
 ## Installation
